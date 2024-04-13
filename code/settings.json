@@ -38,16 +38,16 @@
     "terminal.integrated.allowChords": false,
     "terminal.integrated.gpuAcceleration": "off",
     "terminal.integrated.profiles.linux": {
-        "dash": {
-            "path": "/usr/bin/dash",
-            "icon": "terminal-debian"
-        },
         "bash": {
             "path": "/usr/bin/bash",
             "icon": "terminal-bash"
+        },
+        "dash": {
+            "path": "/usr/bin/dash",
+            "icon": "terminal-debian"
         }
     },
-    "terminal.integrated.defaultProfile.linux": "dash",
+    "terminal.integrated.defaultProfile.linux": "bash",
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Quiet Light",
