@@ -31,7 +31,7 @@ __error () {
 #######################
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y dash gnome-keyring || __error "installing packages"
+sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || __error "installing packages"
 
 
 
