@@ -18,8 +18,8 @@ if [[ ! -x "$(command -v "code")" ]]; then
     exit 1
 fi
 # ---
-__error () {
-    clear
+function error-echo () {
+    clear -x
     printf "${RED}ERROR: %s${NC}\n" "$1" >&2
     exit 1
 }
@@ -31,7 +31,7 @@ __error () {
 #######################
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || __error "installing packages"
+sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || error-echo "installing packages"
 
 
 
@@ -42,7 +42,7 @@ sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || __error "instal
 BASE="${HOME}/.config/Code/User"
 mkdir -p "${BASE}"
 # ---
-__clean () {
+function clean-extensions () {
     for EXTENSION in $(code --list-extensions); do
         code --uninstall-extension "${EXTENSION}" &>/dev/null
     done
@@ -54,7 +54,7 @@ __clean () {
 ### Start
 #########
 
-__clean
+clean-extensions
 code --install-extension github.copilot &>/dev/null
 cat "${SCRIPTPATH}/code/settings.json" > "${BASE}/settings.json"
 cat "${SCRIPTPATH}/code/keybindings.json" > "${BASE}/keybindings.json"

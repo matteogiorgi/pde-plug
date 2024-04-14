@@ -25,8 +25,8 @@ if [[ ! -x "$(command -v "vim")" ]]; then
     exit 1
 fi
 # ---
-__error () {
-    clear
+function error-echo () {
+    clear -x
     printf "${RED}ERROR: %s${NC}\n" "$1" >&2
     exit 1
 }
@@ -38,7 +38,7 @@ __error () {
 #######################
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y exuberant-ctags pandoc || __error "installing packages"
+sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing packages"
 
 
 
@@ -50,7 +50,7 @@ VIM=${HOME}/.vim
 START="${VIM}/pack/plugins/start"
 mkdir -p "${VIM}"
 # ---
-__reset () {
+function reset-plugin () {
     printf "\n${RED}%s${NC}\n" "${OPERATION}"
     if [[ -d "${PLUGIN}" ]]; then
         git -C "${PLUGIN}" pull
@@ -71,42 +71,42 @@ __reset () {
 OPERATION="RESETTING COMMENTARY"
 REPOSITORY="https://github.com/tpope/vim-commentary.git"
 PLUGIN="${START}/commentary"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING SURROUND"
 REPOSITORY="https://github.com/tpope/vim-surround.git"
 PLUGIN="${START}/surround"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING REPEAT"
 REPOSITORY="https://github.com/tpope/vim-repeat.git"
 PLUGIN="${START}/repeat"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING LEXIMA"
 REPOSITORY="https://github.com/cohama/lexima.vim.git"
 PLUGIN="${START}/lexima"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING CONTEXT"
 REPOSITORY="https://github.com/wellle/context.vim.git"
 PLUGIN="${START}/context"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING SIGNIFY"
 REPOSITORY="https://github.com/mhinz/vim-signify.git"
 PLUGIN="${START}/signify"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING ALE"
 REPOSITORY="https://github.com/dense-analysis/ale.git"
 PLUGIN="${START}/ale"
-__reset
+reset-plugin
 # ---
 OPERATION="RESETTING CTRLP"
 REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim.git"
 PLUGIN="${START}/ctrlp"
-__reset
+reset-plugin
 # ---
 # if (vim >= 9) && (node >= 16)
 # add AI-Completion with Copilot
@@ -116,7 +116,7 @@ then
     OPERATION="RESETTING COPILOT"
     REPOSITORY="https://github.com/github/copilot.vim.git"
     PLUGIN="${START}/copilot"
-    __reset
+    reset-plugin
 fi
 
 
