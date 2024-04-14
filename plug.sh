@@ -111,7 +111,7 @@ __reset
 # if (vim >= 9) && (node >= 16)
 # add AI-Completion with Copilot
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
-   [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
+      [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
 then
     OPERATION="RESETTING COPILOT"
     REPOSITORY="https://github.com/github/copilot.vim.git"

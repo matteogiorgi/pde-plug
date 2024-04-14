@@ -113,9 +113,9 @@ if &rtp =~ 'ctrlp'
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_show_hidden = 1
     let g:ctrlp_custom_ignore = {
-        \      'dir': '\v[\/]\.(git|hg|svn|mypy_cache)$',
-        \      'file': '\v\.(exe|so|dll)$'
-        \ }
+          \      'dir': '\v[\/]\.(git|hg|svn|mypy_cache)$',
+          \      'file': '\v\.(exe|so|dll)$'
+          \ }
     " ---
     augroup netrw_prettyfier
         autocmd FileType netrw nmap <buffer> <leader>f :CtrlP<space>%:p:h<CR>
@@ -146,7 +146,7 @@ if &rtp =~ 'copilot'
     " ---
     function! s:CopilotPanel()
         let l:panel_status = len(filter(range(1, bufnr('$')),
-            \ 'bufexists(v:val) && bufname(v:val) =~# "^copilot:///"')) > 0
+              \ 'bufexists(v:val) && bufname(v:val) =~# "^copilot:///"')) > 0
         let g:copilot_panel = l:panel_status ? 'close' : 'Copilot panel'
         silent! execute g:copilot_panel
     endfunction
