@@ -34,7 +34,7 @@ function error-echo () {
 
 
 
-### Path & dependencies
+### Path & Dependencies
 #######################
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
@@ -108,8 +108,6 @@ REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim.git"
 PLUGIN="${START}/ctrlp"
 reset-plugin
 # ---
-# if (vim >= 9) && (node >= 16)
-# add AI-Completion with Copilot
 if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
       [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
 then

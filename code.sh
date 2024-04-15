@@ -27,7 +27,7 @@ function error-echo () {
 
 
 
-### Path & dependencies
+### Path & Dependencies
 #######################
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1

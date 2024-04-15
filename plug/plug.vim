@@ -1,20 +1,20 @@
 " plug.vim: simple viml-script that sets basic configuration
 " for installed plugins (Vim 9.0+ required just for copilot).
 " ---
-" COMMENTARY https://github.com/tpope/vim-commentary
-" SURROUND   https://github.com/tpope/vim-surround
-" REPEAT     https://github.com/tpope/vim-repeat
-" LEXIMA     https://github.com/cohama/lexima.vim
-" CONTEXT    https://github.com/wellle/context.vim
-" SIGNIFY    https://github.com/mhinz/vim-signify
-" ALE        https://github.com/dense-analysis/ale
-" CTRLP      https://github.com/ctrlpvim/ctrlp.vim
-" COPILOT    https://github.com/github/copilot.vim
+" Commentary -> https://github.com/tpope/vim-commentary
+" Surround   -> https://github.com/tpope/vim-surround
+" Repeat     -> https://github.com/tpope/vim-repeat
+" Lexima     -> https://github.com/cohama/lexima.vim
+" Context    -> https://github.com/wellle/context.vim
+" Signify    -> https://github.com/mhinz/vim-signify
+" Ale        -> https://github.com/dense-analysis/ale
+" Ctrlp      -> https://github.com/ctrlpvim/ctrlp.vim
+" Copilot    -> https://github.com/github/copilot.vim
 
 
 
 
-" INIT {{{
+" Init {{{
 if exists("g:plugme")
     finish
 endif
@@ -48,7 +48,7 @@ command! MakeNote call <SID>MakeNote()
 
 
 
-" SIGNIFY {{{
+" Signify {{{
 if &rtp =~ 'signify'
     nnoremap <silent><C-n> <plug>(signify-next-hunk)
     nnoremap <silent><C-p> <plug>(signify-prev-hunk)
@@ -61,7 +61,7 @@ endif
 
 
 
-" ALE {{{
+" Ale {{{
 if &rtp =~ 'ale'
     function! s:ToggleLL()
         let g:quickfix = 'cclose'
@@ -97,7 +97,7 @@ endif
 
 
 
-" CTRLP {{{
+" Ctrlp {{{
 if &rtp =~ 'ctrlp'
     function! s:Ctags()
         if !executable('ctags')
@@ -136,7 +136,7 @@ endif
 
 
 
-" COPILOT {{{
+" Copilot {{{
 if &rtp =~ 'copilot'
     function! s:SuggestWord()
         let suggestion = copilot#Accept("")

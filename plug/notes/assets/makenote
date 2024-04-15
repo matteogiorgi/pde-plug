@@ -4,12 +4,12 @@
 # inside the current directory into html notes linked as a wiki.
 # As alternative `pandoc $FILE --to=pdf -o $NOTEVI/$1.pdf` can
 # be used to convert current markdown file into pdf with LaTeX.
-
-
+# ---
 # $FILE   -> current file path
 # $PARENT -> current directory path
 # $PREFIX -> prefix name (titlepage)
 # $NOTES  -> notes directory path
+
 
 [[ -x "$(command -v pandoc)" ]] || exit 1
 # ---
