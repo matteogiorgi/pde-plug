@@ -50,7 +50,7 @@
     "terminal.integrated.defaultProfile.linux": "bash",
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.iconTheme": "vs-seti",
     "workbench.productIconTheme": "Default",
     "workbench.activityBar.visible": false,
