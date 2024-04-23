@@ -15,7 +15,7 @@
     "editor.fontSize": 13,
     "editor.lineHeight": 1.4,
     "editor.lineNumbers": "on",
-    "editor.renderLineHighlight": "none",
+    "editor.renderLineHighlight": "gutter",
     "editor.fontLigatures": true,
     "editor.guides.indentation": false,
     "editor.minimap.enabled": false,
