@@ -47,7 +47,7 @@ sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing pac
 ##########
 
 VIM=${HOME}/.vim
-START="${VIM}/pack/plugins/start"
+START="${VIM}/pack/plug/start"
 mkdir -p "${VIM}"
 # ---
 function reset-plugin () {
