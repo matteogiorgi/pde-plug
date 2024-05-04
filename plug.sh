@@ -30,25 +30,6 @@ function error-echo () {
     printf "${RED}ERROR: %s${NC}\n" "$1" >&2
     exit 1
 }
-
-
-
-
-### Path & Dependencies
-#######################
-
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing packages"
-
-
-
-
-### Ready?
-##########
-
-VIM=${HOME}/.vim
-START="${VIM}/pack/plug/start"
-mkdir -p "${VIM}"
 # ---
 function reset-plugin () {
     printf "\n${RED}%s${NC}\n" "${OPERATION}"
@@ -62,9 +43,22 @@ function reset-plugin () {
 
 
 
+### Path & Dependencies
+#######################
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
+sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing packages"
+
+
+
+
 ### Start
 #########
 
+VIM=${HOME}/.vim
+START="${VIM}/pack/plug/start"
+mkdir -p "${VIM}"
+# ---
 [[ -d "${VIM}/plugin" ]] || cp -r "${SCRIPTPATH}/plug" "${VIM}/plugin"
 [[ -d "${START}" ]] || mkdir -p "${START}"
 # ---
