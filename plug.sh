@@ -19,9 +19,9 @@
 RED='\033[1;36m'
 NC='\033[0m'
 # ---
-if [[ ! -x "$(command -v "vim")" ]]; then
-    printf "\n${RED}%s${NC}"   "═══════ Warning: Vim not found ══════"
-    printf "\n${RED}%s${NC}\n" "Install Vim and run this script again"
+if [[ ! -x "$(command -v "vim")" || ! "$(command vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]]; then
+    printf "\n${RED}%s${NC}"   "═══════ Warning: Vim9 not found ══════"
+    printf "\n${RED}%s${NC}\n" "Install Vim9 and run this script again"
     exit 1
 fi
 # ---
@@ -34,9 +34,9 @@ function error-echo () {
 function reset-plugin () {
     printf "\n${RED}%s${NC}\n" "${OPERATION}"
     if [[ -d "${PLUGIN}" ]]; then
-        git -C "${PLUGIN}" pull
+        command git -C "${PLUGIN}" pull
     else
-        git clone "${REPOSITORY}" "${PLUGIN}"
+        command git clone "${REPOSITORY}" "${PLUGIN}"
     fi
 }
 
@@ -46,8 +46,8 @@ function reset-plugin () {
 ### Path & Dependencies
 #######################
 
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing packages"
+SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
+sudo apt-get install -qq -y git exuberant-ctags pandoc || error-echo "installing packages"
 
 
 
@@ -99,9 +99,7 @@ REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim.git"
 PLUGIN="${START}/ctrlp"
 reset-plugin
 # ---
-if [[ "$(vim --version | grep -oE 'Vi IMproved 9')" == "Vi IMproved 9" ]] && \
-      [[ -x "$(command -v "node")" && $(node --version | cut -d v -f2 | awk -F. '{print $1}') -ge 16 ]]
-then
+if [[ -x "$(command -v "node")" && $(command node --version | command cut -d v -f2 | command awk -F. '{print $1}') -ge 16 ]]; then
     OPERATION="RESETTING COPILOT"
     REPOSITORY="https://github.com/github/copilot.vim.git"
     PLUGIN="${START}/copilot"

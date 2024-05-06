@@ -30,7 +30,7 @@ function error-echo () {
 ### Path & Dependencies
 #######################
 
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )" || exit 1
+SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
 sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || error-echo "installing packages"
 
 
@@ -40,11 +40,11 @@ sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || error-echo "ins
 #########
 
 BASE="${HOME}/.config/Code/User" && mkdir -p "${BASE}"
-for EXTENSION in $(code --list-extensions); do
-    code --uninstall-extension "${EXTENSION}" &>/dev/null
+for EXTENSION in $(command code --list-extensions); do
+    command code --uninstall-extension "${EXTENSION}" &>/dev/null
 done
 # ---
-code --install-extension github.copilot &>/dev/null
+command code --install-extension github.copilot &>/dev/null
 cat "${SCRIPTPATH}/code/settings.json" > "${BASE}/settings.json"
 cat "${SCRIPTPATH}/code/keybindings.json" > "${BASE}/keybindings.json"
 
