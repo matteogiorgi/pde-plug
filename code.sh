@@ -39,9 +39,7 @@ sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || error-echo "ins
 ### Start
 #########
 
-BASE="${HOME}/.config/Code/User"
-mkdir -p "${BASE}"
-# ---
+BASE="${HOME}/.config/Code/User" && mkdir -p "${BASE}"
 for EXTENSION in $(code --list-extensions); do
     code --uninstall-extension "${EXTENSION}" &>/dev/null
 done

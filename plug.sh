@@ -55,12 +55,9 @@ sudo apt-get install -qq -y exuberant-ctags pandoc || error-echo "installing pac
 ### Start
 #########
 
-VIM=${HOME}/.vim
-START="${VIM}/pack/plug/start"
-mkdir -p "${VIM}"
-# ---
+VIM=${HOME}/.vim && mkdir -p "${VIM}"
+START="${VIM}/pack/plug/start" && mkdir -p "${START}"
 [[ -d "${VIM}/plugin" ]] || cp -r "${SCRIPTPATH}/plug" "${VIM}/plugin"
-[[ -d "${START}" ]] || mkdir -p "${START}"
 # ---
 OPERATION="RESETTING COMMENTARY"
 REPOSITORY="https://github.com/tpope/vim-commentary.git"
