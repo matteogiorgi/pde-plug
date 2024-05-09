@@ -75,11 +75,11 @@ if &rtp =~ 'ale'
     set completeopt=menu,menuone,popup,noselect,noinsert
     " ---
     augroup ale_ominfunc
-        autocmd FileType python,c,bash setlocal omnifunc=ale#completion#OmniFunc
+        autocmd FileType go,python,javascript,bash,c setlocal omnifunc=ale#completion#OmniFunc
     augroup END
     " ---
-    let g:ale_linters = {'python': ['pylsp'], 'go': ['gofmt'], 'c': ['gcc'], 'bash': ['shellcheck']}
-    let g:ale_fixers = {'python': ['black'], '*': ['remove_trailing_lines', 'trim_whitespace']}
+    let g:ale_linters = {'go': ['gopls'], 'python': ['pylsp'], 'javascript': ['eslint'], 'bash': ['shellcheck'], 'c': ['cc']}
+    let g:ale_fixers = {'go': ['gofmt'], 'python': ['black'], 'javascript': ['eslint'], '*': ['remove_trailing_lines', 'trim_whitespace']}
     let g:ale_echo_msg_format = '[%linter% %severity%] %s'
     let g:ale_virtualtext_cursor = 0
     let g:ale_fix_on_save = 1

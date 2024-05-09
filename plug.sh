@@ -47,7 +47,11 @@ function reset-plugin () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
-sudo apt-get install -qq -y git exuberant-ctags pandoc || error-echo "installing packages"
+command sudo apt-get install -qq -y git golang-go python3 python3-pip nodejs npm \
+      shellcheck exuberant-ctags pandoc || error-echo "installing packages"
+command go install golang.org/x/tools/gopls@latest || error-echo "installing go packages"
+command pip3 install python-lsp-server pyflakes black || error-echo "installing python packages"
+command npm install -D --save-dev prettier-eslint-cli
 
 
 
