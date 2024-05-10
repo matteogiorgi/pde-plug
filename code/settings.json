@@ -47,7 +47,7 @@
             "icon": "terminal-debian"
         }
     },
-    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.linux": "dash",
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": false,
