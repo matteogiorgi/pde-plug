@@ -19,7 +19,6 @@ if [[ ! -x "$(command -v "code")" ]]; then
 fi
 # ---
 function error-echo () {
-    clear -x
     printf "${RED}ERROR: %s${NC}\n" "$1" >&2
     exit 1
 }
