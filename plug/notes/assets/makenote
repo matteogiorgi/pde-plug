@@ -5,10 +5,10 @@
 # As alternative `pandoc $FILE --to=pdf -o $NOTEVI/$1.pdf` can
 # be used to convert current markdown file into pdf with LaTeX.
 # ---
-# $FILE   -> current file path
-# $PARENT -> current directory path
-# $PREFIX -> prefix name (titlepage)
-# $NOTES  -> notes directory path
+# $FILE    -> current file path
+# $PARENT  -> current directory path
+# $PREFIX  -> prefix name (titlepage)
+# $DIRNOTE -> notes directory path
 
 
 [[ -x "$(command -v pandoc)" ]] || exit 1
@@ -16,12 +16,12 @@
 for NOTE in *; do
     [[ "${NOTE##*.}" == "md" ]] || continue
     NAME="${NOTE%.*}"
-    pandoc "${NOTE}" -s --to=html5 -o "${NOTES}"/"${NAME}".html \
+    command pandoc "${NOTE}" -s --to=html5 -o "${DIRNOTE}"/"${NAME}".html \
           --mathjax \
-          --lua-filter="${NOTES}"/assets/link2html.lua \
-          -H "${NOTES}"/assets/header.html \
-          -B "${NOTES}"/assets/before.html \
-          -A "${NOTES}"/assets/footer.html \
+          --lua-filter="${DIRNOTE}"/assets/link2html.lua \
+          -H "${DIRNOTE}"/assets/header.html \
+          -B "${DIRNOTE}"/assets/before.html \
+          -A "${DIRNOTE}"/assets/footer.html \
           -T "${PREFIX}" \
           &>/dev/null
 done
