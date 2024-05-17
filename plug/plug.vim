@@ -75,7 +75,7 @@ if &rtp =~ 'ale'
     set completeopt=menu,menuone,popup,noselect,noinsert
     " ---
     augroup ale_ominfunc
-        autocmd FileType python,go,bash,c setlocal omnifunc=ale#completion#OmniFunc
+        autocmd FileType python,c setlocal omnifunc=ale#completion#OmniFunc
     augroup END
     " ---
     let g:ale_linters = {'python': ['pylsp'], 'c': ['cc']}
