@@ -46,7 +46,8 @@ function reset-plugin () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
-command sudo apt-get install -qq -y git python3-pip exuberant-ctags pandoc || error-echo "installing from apt"
+command sudo apt-get install -qq -y git python3 python3-pip golang-go gopls \
+      shellcheck exuberant-ctags pandoc || error-echo "installing from apt"
 command pip3 install python-lsp-server pyflakes black || error-echo "installing from pip"
 
 
