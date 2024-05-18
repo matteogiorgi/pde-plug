@@ -14,7 +14,7 @@
 
 
 
-" Init {{{
+" Init & MakeNote {{{
 if exists("g:plugme")
     finish
 endif
@@ -24,18 +24,18 @@ function! s:MakeNote()
     let l:path_file   = expand('%:p')
     let l:path_parent = expand('%:p:h')
     let l:path_notes  = l:path_parent . '/notes'
-    let $FILE   = fnamemodify(l:path_file, ':p')
-    let $PARENT = fnamemodify(l:path_parent, ':p')
-    let $PREFIX = fnamemodify(l:path_parent, ':t')
-    let $NOTES  = fnamemodify(l:path_notes, ':p')
+    let $FILENOTE = fnamemodify(l:path_file, ':p')
+    let $PARENT   = fnamemodify(l:path_parent, ':p')
+    let $PREFIX   = fnamemodify(l:path_parent, ':t')
+    let $DIRNOTE  = fnamemodify(l:path_notes, ':p')
     if empty(glob(l:path_parent . '/*.md'))
         echo 'no markdown found inside ' . l:path_parent
         return
     endif
-    if !isdirectory($NOTES)
+    if !isdirectory($DIRNOTE)
         execute 'silent !cp -R $HOME/.vim/plugin/notes $PARENT'
     endif
-    execute 'silent !$NOTES/assets/makenote %:t:r'
+    execute 'silent !$DIRNOTE/assets/makenote %:t:r'
     redraw!
     redrawstatus!
     redrawtabline
