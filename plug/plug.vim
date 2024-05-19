@@ -70,14 +70,9 @@ if &rtp =~ 'ale'
         silent! execute g:loclist
     endfunction
     " ---
-    let g:ale_completion_enabled = 1
     set omnifunc=ale#completion#OmniFunc
-    set completeopt=menu,menuone,popup,noselect,noinsert
-    " ---
-    augroup ale_ominfunc
-        autocmd FileType python,go,bash,c setlocal omnifunc=ale#completion#OmniFunc
-    augroup END
-    " ---
+    let g:ale_completion_enabled = 1
+    let g:ale_completion_autoimport = 1
     let g:ale_linters = {'python': ['pylsp'], 'go': ['gopls', 'gofmt'], 'bash': ['shellcheck'], 'c': ['cc']}
     let g:ale_fixers = {'python': ['black'], 'go': ['gofmt'], '*': ['remove_trailing_lines', 'trim_whitespace']}
     let g:ale_echo_msg_format = '[%linter% %severity%] %s'
