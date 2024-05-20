@@ -38,7 +38,7 @@ command sudo apt-get install -qq -y gnome-keyring dash fonts-liberation || error
 ### Start
 #########
 
-BASE="${HOME}/.config/Code/User" && mkdir -p "${BASE}"
+BASE="${HOME}/.config/Code/User" && command mkdir -p "${BASE}"
 for EXTENSION in $(command code --list-extensions); do
     command code --uninstall-extension "${EXTENSION}" &>/dev/null
 done

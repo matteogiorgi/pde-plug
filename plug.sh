@@ -55,8 +55,8 @@ command sudo apt-get install -qq -y git python3 python3-pip python3-pylsp python
 ### Start
 #########
 
-VIM=${HOME}/.vim && mkdir -p "${VIM}"
-START="${VIM}/pack/plug/start" && mkdir -p "${START}"
+VIM=${HOME}/.vim && command mkdir -p "${VIM}"
+START="${VIM}/pack/plug/start" && command mkdir -p "${START}"
 [[ -d "${VIM}/plugin" ]] || cp -r "${SCRIPTPATH}/plug" "${VIM}/plugin"
 # ---
 OPERATION="RESETTING COMMENTARY"
