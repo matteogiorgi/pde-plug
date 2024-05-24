@@ -86,6 +86,7 @@ if &rtp =~ 'ale'
     nnoremap <localleader>a :call <SID>ToggleLL()<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
+    nnoremap <silent>K <CMD>ALEHover<CR>
 endif
 " }}}
 
