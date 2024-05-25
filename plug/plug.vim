@@ -49,7 +49,7 @@ command! MakeNote call <SID>MakeNote()
 
 
 " Signify {{{
-if &rtp =~ 'signify'
+if &rtp =~ 'signify' && g:loaded_signify == 1
     nnoremap <silent><C-n> <plug>(signify-next-hunk)
     nnoremap <silent><C-p> <plug>(signify-prev-hunk)
     nnoremap <leader>g :SignifyDiff<CR>
@@ -62,7 +62,7 @@ endif
 
 
 " Ale {{{
-if &rtp =~ 'ale'
+if &rtp =~ 'ale' && g:loaded_ale == 1
     function! s:ToggleLL()
         let g:quickfix = 'cclose'
         let g:loclist = !exists("g:loclist") || g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
@@ -70,10 +70,17 @@ if &rtp =~ 'ale'
         silent! execute g:loclist
     endfunction
     " ---
+    augroup ale_hover
+        autocmd FileType python,go
+              \ if g:loaded_ale == 1|
+              \     nnoremap <buffer> <silent>K <CMD>ALEHover<CR>|
+              \ endif
+    augroup END
+    " ---
     set omnifunc=ale#completion#OmniFunc
     let g:ale_completion_enabled = 1
     let g:ale_completion_autoimport = 1
-    let g:ale_linters = {'python': ['pylsp'], 'go': ['gopls', 'gofmt'], 'bash': ['shellcheck'], 'c': ['cc']}
+    let g:ale_linters = {'python': ['pylsp'], 'go': ['gopls', 'gofmt']}
     let g:ale_fixers = {'python': ['black'], 'go': ['gofmt'], '*': ['remove_trailing_lines', 'trim_whitespace']}
     let g:ale_echo_msg_format = '[%linter% %severity%] %s'
     let g:ale_virtualtext_cursor = 0
@@ -86,7 +93,6 @@ if &rtp =~ 'ale'
     nnoremap <localleader>a :call <SID>ToggleLL()<CR>
     nnoremap <leader>s :ALEFindReferences<CR>
     nnoremap <leader>d :ALEGoToDefinition<CR>
-    nnoremap <silent>K <CMD>ALEHover<CR>
 endif
 " }}}
 
@@ -94,7 +100,7 @@ endif
 
 
 " Ctrlp {{{
-if &rtp =~ 'ctrlp'
+if &rtp =~ 'ctrlp' && g:loaded_ctrlp == 1
     function! s:Ctags()
         if !executable('ctags')
             echo "ctags not installed"
@@ -114,7 +120,10 @@ if &rtp =~ 'ctrlp'
           \ }
     " ---
     augroup netrw_prettyfier
-        autocmd FileType netrw nmap <buffer> <leader>f :CtrlP<space>%:p:h<CR>
+        autocmd FileType netrw
+              \ if g:loaded_ctrlp == 1|
+              \     nmap <buffer> <leader>f :CtrlP<space>%:p:h<CR>|
+              \ endif
     augroup end
     " ---
     command! Ctags call s:Ctags()
@@ -133,7 +142,7 @@ endif
 
 
 " Copilot {{{
-if &rtp =~ 'copilot'
+if &rtp =~ 'copilot' && g:loaded_copilot == 1
     function! s:SuggestWord()
         let suggestion = copilot#Accept("")
         let textsuggested = copilot#TextQueuedForInsertion()
