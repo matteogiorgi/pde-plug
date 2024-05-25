@@ -49,7 +49,7 @@ command! MakeNote call <SID>MakeNote()
 
 
 " Signify {{{
-if &rtp =~ 'signify' && g:loaded_signify == 1
+if &rtp =~ 'signify'
     nnoremap <silent><C-n> <plug>(signify-next-hunk)
     nnoremap <silent><C-p> <plug>(signify-prev-hunk)
     nnoremap <leader>g :SignifyDiff<CR>
@@ -62,7 +62,7 @@ endif
 
 
 " Ale {{{
-if &rtp =~ 'ale' && g:loaded_ale == 1
+if &rtp =~ 'ale'
     function! s:ToggleLL()
         let g:quickfix = 'cclose'
         let g:loclist = !exists("g:loclist") || g:loclist ==# 'lclose' ? 'lopen' : 'lclose'
@@ -100,7 +100,7 @@ endif
 
 
 " Ctrlp {{{
-if &rtp =~ 'ctrlp' && g:loaded_ctrlp == 1
+if &rtp =~ 'ctrlp'
     function! s:Ctags()
         if !executable('ctags')
             echo "ctags not installed"
@@ -142,7 +142,7 @@ endif
 
 
 " Copilot {{{
-if &rtp =~ 'copilot' && g:loaded_copilot == 1
+if &rtp =~ 'copilot'
     function! s:SuggestWord()
         let suggestion = copilot#Accept("")
         let textsuggested = copilot#TextQueuedForInsertion()
