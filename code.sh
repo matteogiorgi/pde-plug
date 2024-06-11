@@ -2,6 +2,9 @@
 
 # VSCode reset with just few tweaks and GitHub-Copilot extension:
 # https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+# ---
+# VSCode is not included in the Debin repos,
+# install it separately from https://code.visualstudio.com/.
 
 
 
