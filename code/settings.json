@@ -39,15 +39,16 @@
     "terminal.integrated.gpuAcceleration": "off",
     "terminal.integrated.profiles.linux": {
         "bash": {
-            "path": "/usr/bin/bash",
-            "icon": "terminal-bash"
+            "icon": "terminal-bash",
+            "path": ["/bin/bash","/usr/bin/bash"],
+            "args": ["--noprofile", "--norc", "--posix"]
         },
         "dash": {
-            "path": "/usr/bin/dash",
-            "icon": "terminal-debian"
+            "icon": "terminal-debian",
+            "path": ["/bin/dash","/usr/bin/dash"]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "dash",
+    "terminal.integrated.defaultProfile.linux": "bash",
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": false,
