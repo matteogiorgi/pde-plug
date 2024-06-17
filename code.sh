@@ -33,7 +33,7 @@ function error-echo () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
-command sudo apt-get install -qq -y gnome-keyring dash fonts-firacode || error-echo "installing from apt"
+command sudo apt-get install -qq -y gnome-keyring bash dash fonts-firacode || error-echo "installing from apt"
 
 
 
