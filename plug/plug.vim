@@ -78,12 +78,13 @@ if &rtp =~ 'ale'
     augroup END
     " ---
     set omnifunc=ale#completion#OmniFunc
+    let g:ale_echo_msg_format = '[%linter% %severity%] %s'
     let g:ale_completion_enabled = 1
     let g:ale_completion_autoimport = 1
     let g:ale_lsp_suggestions = 1
     let g:ale_fix_on_save = 1
     let g:ale_virtualtext_cursor = 0
-    let g:ale_echo_msg_format = '[%linter% %severity%] %s'
+    let g:ale_linters_explicit = 1
     let g:ale_linters = {
           \      'python': ['pylsp'],
           \      'go': ['gopls', 'gofmt']
