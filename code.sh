@@ -33,7 +33,8 @@ function error-echo () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
-command sudo apt-get install -qq -y gnome-keyring bash dash fonts-firacode || error-echo "installing from apt"
+command sudo apt-get install -qq -y gnome-keyring bash dash python3 black golang-go \
+      fonts-firacode || error-echo "installing from apt"
 
 
 
@@ -47,6 +48,9 @@ for EXTENSION in $(command code --list-extensions); do
 done
 # ---
 command code --install-extension github.copilot &>/dev/null
+command code --install-extension ms-python.python &>/dev/null
+command code --install-extension ms-python.black-formatter &>/dev/null
+command code --install-extension golang.go &>/dev/null
 cat "${SCRIPTPATH}/code/settings.json" > "${BASE}/settings.json"
 cat "${SCRIPTPATH}/code/keybindings.json" > "${BASE}/keybindings.json"
 
