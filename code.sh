@@ -33,8 +33,8 @@ function error-echo () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
-command sudo apt-get install -qq -y gnome-keyring bash dash python3 black golang-go \
-      fonts-firacode || error-echo "installing from apt"
+command sudo apt-get install -qq -y gnome-keyring bash dash python3 black \
+      golang-go gopls fonts-firacode || error-echo "installing from apt"
 
 
 
