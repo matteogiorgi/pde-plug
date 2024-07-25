@@ -1,0 +1,8 @@
+{
+    "font_face": "Fira Code",
+    "font_size": 10,
+    "render_commit_dialog_message_at_top": false,
+    "side_bar_layout": "tabs",
+    "translate_tabs_to_spaces": true,
+    "editor_path": "~/.local/bin/subl"
+}

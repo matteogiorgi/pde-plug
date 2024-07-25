@@ -1,0 +1,5 @@
+[
+    { "keys": ["alt+s"], "command": "toggle_side_bar" },
+    { "keys": ["alt+z"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["alt+shift+z"], "command": "toggle_comment", "args": { "block": true } }
+]

@@ -1,0 +1,17 @@
+{
+    "theme": "auto",
+    "color_scheme": "Mariana.sublime-color-scheme",
+    "font_face": "Fira Code",
+    "font_size": 10,
+    "font_options": ["dlig"],
+    "fold_buttons": false,
+    "rulers": [120],
+    "translate_tabs_to_spaces": true,
+    "caret_extra_top": 1,
+    "caret_extra_bottom": 1,
+    "draw_indent_guides": false,
+    "reveal_menu": false,
+    "hot_exit": "only_on_quit",
+    "sublime_merge_path": "~/.local/bin/smerge",
+    "preview_on_click": false
+}
