@@ -1,0 +1,8 @@
+[
+    {
+        "context": "Editor",
+        "bindings": {
+            "alt-a": ["editor::ToggleComments", { "advance_downwards": false }]
+        }
+    }
+]

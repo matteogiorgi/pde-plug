@@ -1,0 +1,46 @@
+{
+    "ui_font_family": "Ubuntu",
+    "ui_font_size": 15.5,
+    "ui_font_weight": 500,
+    "ui_font_features": {
+        "calt": true
+    },
+    "buffer_font_family": "Fira Code",
+    "buffer_font_size": 12.5,
+    "buffer_font_weight": 500,
+    "buffer_font_features": {
+        "calt": true
+    },
+    "buffer_line_height": {
+        "custom": 1.4
+    },
+    "theme": {
+        "mode": "light",
+        "light": "One Light",
+        "dark": "One Dark"
+    },
+    "cursor_blink": false,
+    "show_wrap_guides": true,
+    "wrap_guides": [120],
+    "preferred_line_length": 120,
+    "current_line_highlight": "gutter",
+    "gutter": {
+        "line_numbers": true,
+        "code_actions": true,
+        "runnables": true,
+        "folds": false
+    },
+    "indent_guides": {
+        "enabled": false
+    },
+    "hard_tabs": false,
+    "tab_size": 4,
+    "vim_mode": false,
+    "terminal": {
+        "shell": {
+            "program": "/bin/dash"
+        },
+        "font_family": "Fira Code",
+        "font_size": 13
+    }
+}
