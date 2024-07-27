@@ -32,6 +32,7 @@ function error-echo () {
 #######################
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
+command sudo apt-get update && sudo apt-get upgrade -qq -y || error-echo "syncing repos"
 command sudo apt-get install -qq -y bash dash fonts-ubuntu fonts-firacode || error-echo "installing from apt"
 
 
