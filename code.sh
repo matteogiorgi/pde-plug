@@ -38,7 +38,7 @@ function error-echo () {
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
 command sudo apt-get update && sudo apt-get upgrade -qq -y || error-echo "syncing repos"
 command sudo apt-get install -qq -y gnome-keyring git bash dash python3 python3-pip black \
-      golang-go gopls fonts-ubuntu fonts-firacode || error-echo "installing from apt"
+      golang-go gopls fonts-firacode || error-echo "installing from apt"
 
 
 
