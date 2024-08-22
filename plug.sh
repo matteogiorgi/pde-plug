@@ -47,7 +47,7 @@ function reset-plugin () {
 
 SCRIPTPATH="$( cd "$(command dirname "$0")" ; pwd -P )" || exit 1
 command sudo apt-get install -qq -y git python3 python3-pip python3-pylsp python3-jedi pyflakes3 \
-      black golang-go gopls exuberant-ctags pandoc || error-echo "installing from apt"
+      black golang-go gopls nodejs exuberant-ctags pandoc || error-echo "installing from apt"
 
 
 
@@ -99,12 +99,10 @@ REPOSITORY="https://github.com/ctrlpvim/ctrlp.vim.git"
 PLUGIN="${START}/ctrlp"
 reset-plugin
 # ---
-if [[ -x "$(command -v "node")" && $(command node --version | command cut -d v -f2 | command awk -F. '{print $1}') -ge 16 ]]; then
-    OPERATION="RESETTING COPILOT"
-    REPOSITORY="https://github.com/github/copilot.vim.git"
-    PLUGIN="${START}/copilot"
-    reset-plugin
-fi
+OPERATION="RESETTING COPILOT"
+REPOSITORY="https://github.com/github/copilot.vim.git"
+PLUGIN="${START}/copilot"
+reset-plugin
 
 
 
