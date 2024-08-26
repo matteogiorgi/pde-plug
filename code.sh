@@ -52,9 +52,11 @@ for EXTENSION in $(command code --list-extensions); do
 done
 # ---
 command code --install-extension github.copilot &>/dev/null
+command code --install-extension golang.go &>/dev/null
 command code --install-extension ms-python.python &>/dev/null
 command code --install-extension ms-python.black-formatter &>/dev/null
-command code --install-extension golang.go &>/dev/null
+command code --install-extension ms-toolsai.jupyter &>/dev/null
+
 cat "${SCRIPTPATH}/code/settings.json" > "${BASE}/settings.json"
 cat "${SCRIPTPATH}/code/keybindings.json" > "${BASE}/keybindings.json"
 
